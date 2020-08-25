@@ -1,0 +1,47 @@
+.radio__label {
+  position: relative;
+  padding-left: 24px;
+  @include main-text-style($lh: 32px, $color: $elements-color);
+  cursor: pointer;
+
+  transition: color ease-in 0.2s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    border: 1px solid $main-color;
+    border-radius: 50%;
+
+    transition: border-color ease-in 0.2s;
+  }
+
+  &:hover {
+    color: $third-text-color;
+
+    &::before {
+      border: 1px solid $main-color-hover;
+    }
+  }
+}
+
+.radio__input:checked + .radio__label {
+  color: $main-color;
+
+  &::before {
+    border-width: 5px;
+  }
+
+  &:hover {
+    color: $main-color-hover;
+
+    &::before {
+      border-color: $main-color-hover;
+    }
+  }
+}

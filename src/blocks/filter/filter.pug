@@ -1,0 +1,54 @@
+include ../checkbox/checkbox
+include ../radio/radio
+include ../switch/switch
+include ../button/button
+
+mixin filter()
+  form.filter
+    fieldset.filter__wrapper
+      button.filter__toggle(type="button") Близость к метро
+      div.filter__checkboxes
+        div.filter__top-checkboxes
+          +checkbox("proximity", "<10", "proximity_less_10", "<10", "checkbox--box checkbox--short")
+          +checkbox("proximity", "10-20", "proximity_10_20", "10-20", "checkbox--box checkbox--short")
+          +checkbox("proximity", "20-40", "proximity_20_40", "20-40", "checkbox--box checkbox--short")
+          +checkbox("proximity", "40+", "proximity_more_40", "40+", "checkbox--box checkbox--short")
+        div.filter__bottom-checkboxes
+          +checkbox("proximity", "any", "proximity_any", "Любая", "checkbox--box checkbox--long")
+    fieldset.filter__wrapper
+      button.filter__toggle(type="button") Срок сдачи
+      ul.filter__list
+        li.filter__radio-item
+          +radio("delivery", "any", "delivery_any", "Любой")
+        li.filter__radio-item
+          +radio("delivery", "done", "delivery_done", "Сдан")
+        li.filter__radio-item
+          +radio("delivery", "this-year", "delivery_this-year", "В этом году")
+        li.filter__radio-item
+          +radio("delivery", "next_year", "delivery_next_year", "В следующем году")
+    fieldset.filter__wrapper
+      button.filter__toggle(type="button") Дополнительные опции
+      ul.filter__list
+        li.filter__checkbox-item
+          +checkbox("add_options", "no-cars", "option_cars", "Двор без машин", "checkbox--string")
+        li.filter__checkbox-item
+          +checkbox("add_options", "high_ceiling", "option_ceiling", "Высокие потолки", "checkbox--string")
+        li.filter__checkbox-item
+          +checkbox("add_options", "is_pantries", "option_pantries", "Есть кладовые", "checkbox--string")
+        li.filter__checkbox-item
+          +checkbox("add_options", "panoramic_windows", "option_windows", "Панорамные окна", "checkbox--string")
+        li.filter__checkbox-item
+          +checkbox("add_options", "low-rise", "option_rise", "Малоэтажный (<10 этажей)", "checkbox--string")
+        li.filter__checkbox-item.filter__checkbox-item--hidden
+          +checkbox("add_options", "neighbors", "option_neighbors", "Добрые соседи", "checkbox--string")
+        li.filter__checkbox-item.filter__checkbox-item--hidden
+          +checkbox("add_options", "park", "option_park", "Парк рядом", "checkbox--string")
+        li.filter__checkbox-item.filter__checkbox-item--hidden
+          +checkbox("add_options", "store", "option_store", "Магазин у дома", "checkbox--string")
+        li
+          button.filter__more(type="button") Показать еще (3)
+    div
+      +switch("Услуги 0%")
+    div
+      +button("submit", "Применить фильтры", "button--primary filter__submit")
+      +button("reset", "Сбросить фильтры", "button--secondary filter__reset")

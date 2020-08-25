@@ -1,0 +1,9 @@
+.button--primary {
+  background-color: $main-color;
+  @include main-text-style($fw: 500, $lh: 32px, $color: white);
+  border: none;
+
+  &:hover {
+    background-color: $main-color-hover;
+  }
+}

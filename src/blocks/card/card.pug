@@ -1,0 +1,20 @@
+mixin card(value)
+  article.card
+    .card__header
+      img.card__img(src=value.img.src, alt=value.img.alt)
+      ul.card__marks-list
+        each mark in value.marks
+          li.card__mark= mark
+    .card__body
+      h3.card__title= value.title
+      p.card__timing= value.timing
+      p.card__route
+        span.card__subway
+          svg.card__icon-subway(width="16" height="11" viewBox="0 0 16 11" fill="#ff0013" aria-label="Логотип метрополитена")
+            use(xlink:href="#icon-metro")
+          span= value.subway
+        span.card__duration
+          span= value.duration
+          svg.card__icon-man(width="10" height="17" viewBox="0 0 10 17" fill="#afafaf" aria-label="Логотип пешехода")
+            use(xlink:href="#icon-man")
+      p.card__address= value.address

@@ -1,0 +1,121 @@
+.filter__wrapper {
+  padding: 0;
+  padding-top: 14px;
+  border: none;
+  margin: 0;
+  padding-bottom: 28px;
+  max-height: 1000px;
+
+  transition: max-height ease-in-out 0.2s;
+
+  &--closed {
+    max-height: 18px;
+    overflow: hidden;
+
+    transition: max-height delay-overflow 1s;
+  }
+}
+
+.filter__toggle {
+  position: relative;
+  width: 100%;
+  padding-left: 0;
+  margin-bottom: 24px;
+
+  @include main-text-style($fw: 700, $lh: 20px);
+  text-align: left;
+
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  transition: color ease-in 0.1s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 2px;
+
+    width: 9px;
+    height: 9px;
+    border: 2px solid $primary-text-color;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 2px;
+
+    transform: rotate(45deg);
+
+    transition:
+      transform ease-in 0.3s,
+      top ease-in 0.3s,
+      border-color ease-in 0.1s;
+  }
+
+  &:hover {
+    color: $secondary-text-color;
+
+    &::after {
+      border-color: $secondary-text-color;
+    }
+  }
+
+  &:active {
+    color: $third-text-color;
+
+    &::after {
+      border-color: $third-text-color;
+    }
+  }
+}
+
+.filter__toggle--closed {
+  &::after {
+    top: 3px;
+    transform: rotate(225deg);
+  }
+}
+
+.filter__list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.filter__radio-item {
+  margin-bottom: 7px;
+}
+
+.filter__checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__top-checkboxes {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.filter__checkbox-item {
+  margin-bottom: 9.5px;
+
+  &--hidden {
+    max-height: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.filter__more {
+  padding: 0;
+  @include main-text-style($fs: 15px, $lh: 28px, $color: $main-color);
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.filter__submit {
+  margin: 28px 0;
+}

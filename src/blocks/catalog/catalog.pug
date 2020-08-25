@@ -1,0 +1,12 @@
+include ../card/card
+
+mixin catalog(cards)
+  ul.catalog__list
+    each card in cards
+      li.catalog__item
+        a.catalog__link(href="#")
+          +card(card)
+  .catalog__loader
+    button.catalog__button
+      span.catalog__button-icon
+      span.catalog__button-text Показать еще
